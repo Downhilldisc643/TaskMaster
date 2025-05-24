@@ -26,7 +26,8 @@
                     {% else %}
                         <span class="text-warning">Not Completed</span>
                     {% endif %}
-                </span>                
+                <a href="{% url 'delete-task' task.id %}" class="btn btn-sm btn-outline-danger ms-3">Delete</a>
+                </span>  
             </li>
         {% empty %}
             <li class="list-group-item">No tasks yet.</li>
