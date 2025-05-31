@@ -1,15 +1,14 @@
 from django.db import models
 
 class Task(models.Model):
-    PRIORITY_CHOICES=[
-        ('Low', 'Low'),
-        ('Medium', 'Medium'),
-        ('High', 'High'),
+    STATUS_CHOICES=[
+        ('Not Started','Not Started'),
+        ('Started','Started'),
     ]
 
     title=models.CharField(max_length=200)
-    completed=models.BooleanField(default=False)
-    priority=models.CharField(max_length=10, choices=PRIORITY_CHOICES, default='Medium')
+    status=models.CharField(max_length=20,choices=STATUS_CHOICES,default='Not Started')
+    priority=models.CharField(max_length=10,choices=[('Low','Low'),('Medium','Medium'), ('High','High')],default='Low')
     due_date=models.DateField(null=True, blank=True)
 
     def __str__(self):
